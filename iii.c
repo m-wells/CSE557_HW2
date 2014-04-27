@@ -4,8 +4,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include "help_func.h"
-#define NUMTHREADS 8
-#include <tmmintrin.h>
+//#include <tmmintrin.h>
 
 double A[SIZE][SIZE];
 double B[SIZE][SIZE];
@@ -29,7 +28,6 @@ void unoptimized_omp_triad(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[
 
 int main(int argc, const char *argv[])
 {
-	omp_set_num_threads(NUMTHREADS);
 	/*
 	double A[SIZE][SIZE] = {1,2,3,4,5,6,7,8,9};
 	double B[SIZE][SIZE] = {3,2,3,4,5,6,7,8,9};
