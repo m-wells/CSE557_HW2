@@ -106,5 +106,9 @@ int main(int argc, const char *argv[])
 
 	double gflops = (2*SIZE/(end_time * 1000000000))*SIZE*SIZE;
 	printf("Baseline GFLOP/s = %f\n",gflops);
+
+	free(A);
+	free(B);
+	free(C);
 	return 0;
 }
