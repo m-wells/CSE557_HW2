@@ -36,9 +36,10 @@ void unoptimized_triad_(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZ
 
 int main(int argc, const char *argv[])
 {
-	double A[SIZE*3] = {1,2,3,4,5,6,7,8,9};
-	double B[SIZE*3] = {3,2,3,4,5,6,7,8,9};
-	double C[SIZE*3] = {1,10,3,4,5,6,7,8,9};
+	double A* = {1,2,3,4,5,6,7,8,9};
+	double B* = {3,2,3,4,5,6,7,8,9};
+	double C* = {1,10,3,4,5,6,7,8,9};
+
 	//int i,j;
 	//int info;
 	//char *ntran = "N";
