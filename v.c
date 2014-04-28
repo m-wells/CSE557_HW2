@@ -23,16 +23,16 @@ void unoptimized_triad_(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZ
 	}
 }
 */
-void Dgemm_multiply(double a[SIZE][SIZE],double b[SIZE][SIZE],double c[SIZE][SIZE], int N)
-{	
-
-	double alpha = 1.0, beta = 1.0;
-	int incx = 1;
-	int incy = N;
-	cblas_dgemm(CblasRowMajor,CblasNoTrans,CblasNoTrans,N,N,N,alpha,b,N,a,N,beta,c,N);
-	//dgemm_(TRANSA, TRANSB, M, N, K, ALPHA, A, LDA, B, LDB, BETA, C, LDC)
-	//dgemm('N','N',SIZE,SIZE,SIZE,1.0,&A,SIZE,&B,SIZE,1.0,&C,SIZE);
-}
+//void Dgemm_multiply(double a[SIZE][SIZE],double b[SIZE][SIZE],double c[SIZE][SIZE], int N)
+//{	
+//
+//	double alpha = 1.0, beta = 1.0;
+//	int incx = 1;
+//	int incy = N;
+//	cblas_dgemm(CblasRowMajor,CblasNoTrans,CblasNoTrans,N,N,N,alpha,b,N,a,N,beta,c,N);
+//	//dgemm_(TRANSA, TRANSB, M, N, K, ALPHA, A, LDA, B, LDB, BETA, C, LDC)
+//	//dgemm('N','N',SIZE,SIZE,SIZE,1.0,&A,SIZE,&B,SIZE,1.0,&C,SIZE);
+//}
 
 int main(int argc, const char *argv[])
 {
@@ -53,10 +53,14 @@ int main(int argc, const char *argv[])
 	fill_random2d_double_seed(B,42);
 	fill_random2d_double_seed(C,42);
 	*/
-
+	double alpha = 1.0, beta = 1.0;
+	int incx = 1;
+	int incy = N;
 
 	double start_time = omp_get_wtime();
 	Dgemm_multiply(A,B,C,SIZE);
+
+	cblas_dgemm(CblasRowMajor,CblasNoTrans,CblasNoTrans,N,N,N,alpha,A,N,B,N,beta,C,N);
         //dgemm(ntran, ytran, &n, &n, &n, &one, A, &n, A, &n, &zero, B, &n);
  
 	//unoptimized_triad(A,B,C);
