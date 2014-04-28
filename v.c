@@ -55,6 +55,7 @@ int main(int argc, const char *argv[])
 	*/
 	double alpha = 1.0, beta = 1.0;
 	int incx = 1;
+	int N = SIZE;
 	int incy = N;
 
 	double start_time = omp_get_wtime();
