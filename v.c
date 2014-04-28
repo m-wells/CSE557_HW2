@@ -91,16 +91,16 @@ int main(int argc, const char *argv[])
 	int incx = 1;
 	int incy = N;
 
-	print_arr(N,"A",A);
-	print_arr(N,"B",B);
-	print_arr(N,"C",C);
+	//print_arr(N,"A",A);
+	//print_arr(N,"B",B);
+	//print_arr(N,"C",C);
 	double start_time = omp_get_wtime();
 
 	cblas_dgemm(CblasRowMajor,CblasNoTrans,CblasNoTrans,N,N,N,alpha,A,N,B,N,beta,C,N);
 	//unoptimized_triad(A,B,C);
 	double end_time = omp_get_wtime() - start_time;
 
-	print_arr(N,"C",C);
+	//print_arr(N,"C",C);
 
 	printf("unoptimized base line time: %f\n",end_time);
 
