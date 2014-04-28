@@ -33,6 +33,22 @@ void unoptimized_triad_(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZ
 //	//dgemm_(TRANSA, TRANSB, M, N, K, ALPHA, A, LDA, B, LDB, BETA, C, LDC)
 //	//dgemm('N','N',SIZE,SIZE,SIZE,1.0,&A,SIZE,&B,SIZE,1.0,&C,SIZE);
 //}
+//
+
+
+//print array to std out
+void print_arr(int N, char * name, double* array)
+{	
+	int i,j;	
+	printf("\n%s\n",name);
+	for (i=0;i<N;i++){
+		for (j=0;j<N;j++) {
+			printf("%g\t",array[N*i+j]);
+		}
+		printf("\n");
+	}
+}
+
 
 int main(int argc, const char *argv[])
 {
@@ -78,7 +94,7 @@ int main(int argc, const char *argv[])
 	//unoptimized_triad(A,B,C);
 	double end_time = omp_get_wtime() - start_time;
 
-	print_array2d_double('C',C);
+	print_array(SIZE*SIZE, 'C',C);
 
 	printf("unoptimized base line time: %f\n",end_time);
 
