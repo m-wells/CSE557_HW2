@@ -45,9 +45,9 @@ int main(int argc, const char *argv[])
 	B=(double*) malloc( sizeof(double)*N*N );
 	C=(double*) malloc( sizeof(double)*N*N );
 
-	A = (double[N*N]){1,2,3,4,5,6,7,8,9};
-	B = (double[N*N]){3,2,3,4,5,6,7,8,9};
-	C = (double[N*N]){1,10,3,4,5,6,7,8,9};
+	A = (double[SIZE*SIZE]){1,2,3,4,5,6,7,8,9};
+	B = (double[SIZE*SIZE]){3,2,3,4,5,6,7,8,9};
+	C = (double[SIZE*SIZE]){1,10,3,4,5,6,7,8,9};
 
 	//int i,j;
 	//int info;
