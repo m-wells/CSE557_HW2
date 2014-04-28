@@ -40,13 +40,14 @@ int main(int argc, const char *argv[])
 	//double* B = {3,2,3,4,5,6,7,8,9};
 	//double* C = {1,10,3,4,5,6,7,8,9};
 
+	int N = SIZE;
 	A=(double*) malloc( sizeof(double)*N*N );
 	B=(double*) malloc( sizeof(double)*N*N );
 	C=(double*) malloc( sizeof(double)*N*N );
 
-	A = (double[SIZE]){1,2,3,4,5,6,7,8,9};
-	B = (double[SIZE]){3,2,3,4,5,6,7,8,9};
-	C = (double[SIZE]){1,10,3,4,5,6,7,8,9};
+	A = (double[N*N]){1,2,3,4,5,6,7,8,9};
+	B = (double[N*N]){3,2,3,4,5,6,7,8,9};
+	C = (double[N*N]){1,10,3,4,5,6,7,8,9};
 
 	//int i,j;
 	//int info;
@@ -64,7 +65,6 @@ int main(int argc, const char *argv[])
 	*/
 	double alpha = 1.0, beta = 1.0;
 	int incx = 1;
-	int N = SIZE;
 	int incy = N;
 
 	double start_time = omp_get_wtime();
