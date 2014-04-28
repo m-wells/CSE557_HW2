@@ -58,7 +58,6 @@ int main(int argc, const char *argv[])
 	int incy = N;
 
 	double start_time = omp_get_wtime();
-	Dgemm_multiply(A,B,C,SIZE);
 
 	cblas_dgemm(CblasRowMajor,CblasNoTrans,CblasNoTrans,N,N,N,alpha,&A,N,&B,N,beta,&C,N);
         //dgemm(ntran, ytran, &n, &n, &n, &one, A, &n, A, &n, &zero, B, &n);
