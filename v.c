@@ -3,7 +3,7 @@
 #define SIZE 3	/* size of the array */ 
 #include <time.h>
 #include <stdlib.h>
-#include "help_func.h"
+//#include "help_func.h"
 
 #include <mkl.h>
 
@@ -53,7 +53,7 @@ int main(int argc, const char *argv[])
 	//unoptimized_triad(A,B,C);
 	double end_time = omp_get_wtime() - start_time;
 
-	print_array2d_double('C',C);
+	//print_array2d_double('C',C);
 
 	printf("unoptimized base line time: %f\n",end_time);
 
