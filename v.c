@@ -47,7 +47,7 @@ int main(int argc, const char *argv[])
 	double start_time = omp_get_wtime();
 	
 	//dgemm_(TRANSA, TRANSB, M, N, K, ALPHA, A, LDA, B, LDB, BETA, C, LDC)
-	dgemm_('N','N',SIZE,SIZE,SIZE,1.0,&A,SIZE,&B,SIZE,1.0,&C,SIZE);
+	dgemm('N','N',SIZE,SIZE,SIZE,1.0,&A,SIZE,&B,SIZE,1.0,&C,SIZE);
         //dgemm(ntran, ytran, &n, &n, &n, &one, A, &n, A, &n, &zero, B, &n);
  
 	//unoptimized_triad(A,B,C);
