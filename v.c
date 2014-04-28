@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include "help_func.h"
 
+#include <mkl.h>
+
 double A[SIZE][SIZE];
 double B[SIZE][SIZE];
 double C[SIZE][SIZE];
