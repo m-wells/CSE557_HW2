@@ -3,9 +3,9 @@
 #define SIZE 3	/* size of the array */ 
 #include <time.h>
 #include <stdlib.h>
-//#include "help_func.h"
+#include "help_func.h"
 
-#include <mkl.h>
+#include "mkl.h"
 
 double A[SIZE][SIZE];
 double B[SIZE][SIZE];
@@ -23,6 +23,16 @@ void unoptimized_triad_(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZ
 	}
 }
 */
+void Dgemm_multiply(double* a,double*  b,double*  c, int N)
+{	
+
+	double alpha = 1.0, beta = 1.0;
+	int incx = 1;
+	int incy = N;
+	cblas_dgemm(CblasRowMajor,CblasNoTrans,CblasNoTrans,N,N,N,alpha,b,N,a,N,beta,c,N);
+	//dgemm_(TRANSA, TRANSB, M, N, K, ALPHA, A, LDA, B, LDB, BETA, C, LDC)
+	//dgemm('N','N',SIZE,SIZE,SIZE,1.0,&A,SIZE,&B,SIZE,1.0,&C,SIZE);
+}
 
 int main(int argc, const char *argv[])
 {
@@ -44,16 +54,15 @@ int main(int argc, const char *argv[])
 	fill_random2d_double_seed(C,42);
 	*/
 
+
 	double start_time = omp_get_wtime();
-	
-	//dgemm_(TRANSA, TRANSB, M, N, K, ALPHA, A, LDA, B, LDB, BETA, C, LDC)
-	dgemm('N','N',SIZE,SIZE,SIZE,1.0,&A,SIZE,&B,SIZE,1.0,&C,SIZE);
+	Dgemm_multiply(A,B,C,SIZE);
         //dgemm(ntran, ytran, &n, &n, &n, &one, A, &n, A, &n, &zero, B, &n);
  
 	//unoptimized_triad(A,B,C);
 	double end_time = omp_get_wtime() - start_time;
 
-	//print_array2d_double('C',C);
+	print_array2d_double('C',C);
 
 	printf("unoptimized base line time: %f\n",end_time);
 
