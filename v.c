@@ -48,7 +48,7 @@ int main(int argc, const char *argv[])
 	dgemm_('N','N',SIZE,SIZE,SIZE,1.0,&A,SIZE,&B,SIZE,1.0,&C,SIZE);
         //dgemm(ntran, ytran, &n, &n, &n, &one, A, &n, A, &n, &zero, B, &n);
  
-	unoptimized_triad(A,B,C);
+	//unoptimized_triad(A,B,C);
 	double end_time = omp_get_wtime() - start_time;
 
 	//print_array2d_double('C',C);
