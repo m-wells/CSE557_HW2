@@ -75,12 +75,12 @@ int main(int argc, const char *argv[])
 	B=(double*) malloc( sizeof(double)*N*N );
 	C=(double*) malloc( sizeof(double)*N*N );
 
-	A = (double[SIZE*SIZE]){1,2,3,4,5,6,7,8,9};
-	B = (double[SIZE*SIZE]){3,2,3,4,5,6,7,8,9};
-	C = (double[SIZE*SIZE]){1,10,3,4,5,6,7,8,9};
-	//init_arr(N, A);
-	//init_arr(N, B);
-	//init_arr(N, C);
+	//A = (double[SIZE*SIZE]){1,2,3,4,5,6,7,8,9};
+	//B = (double[SIZE*SIZE]){3,2,3,4,5,6,7,8,9};
+	//C = (double[SIZE*SIZE]){1,10,3,4,5,6,7,8,9};
+	init_arr(N, A);
+	init_arr(N, B);
+	init_arr(N, C);
 
 	/*
 	fill_random2d_double_seed(A,42);
