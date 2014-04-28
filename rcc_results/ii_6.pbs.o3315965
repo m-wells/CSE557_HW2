@@ -1,0 +1,3 @@
+NUMTHREADS:6
+unoptimized omp time: 613.664301
+Unomptimized OMP GFLOP/s = 1.668665
