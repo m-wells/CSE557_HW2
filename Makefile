@@ -5,7 +5,7 @@
 
 all:
 	@echo "Compiling v.c with icc"
-	icc -std=c99 -o v.out v.c -L/usr/global/intel/mkl/10.2.6.038/lib/em64t -Wl,-R/usr/global/intel/mkl/10.2.6.038/lib/em64t -lmkl_lapack -lmkl_intel_lp64 -lmkl_intel_thread -lmkl_core -lmkl_sequential -lm
+	icc -std=c99 -o v.out v.c -L/usr/global/intel/mkl/10.3.1.107/mkl/lib/intel64 -Wl,-R/usr/global/intel/mkl/10.3.1.107/mkl/lib/intel64 -lmkl_solver_lp64_sequential -Wl,--start-group -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group 
 
 
 # vim:ft=make
