@@ -7,9 +7,9 @@
 
 #include "mkl.h"
 
-double A[SIZE][SIZE];
-double B[SIZE][SIZE];
-double C[SIZE][SIZE];
+//double A[SIZE][SIZE];
+//double B[SIZE][SIZE];
+//double C[SIZE][SIZE];
 
 /*
 void unoptimized_triad_(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZE][SIZE])
@@ -69,7 +69,7 @@ int main(int argc, const char *argv[])
 
 	double start_time = omp_get_wtime();
 
-	cblas_dgemm(CblasRowMajor,CblasNoTrans,CblasNoTrans,N,N,N,alpha,&A,N,&B,N,beta,&C,N);
+	cblas_dgemm(CblasRowMajor,CblasNoTrans,CblasNoTrans,N,N,N,alpha,A,N,B,N,beta,C,N);
         //dgemm(ntran, ytran, &n, &n, &n, &one, A, &n, A, &n, &zero, B, &n);
  
 	//unoptimized_triad(A,B,C);
