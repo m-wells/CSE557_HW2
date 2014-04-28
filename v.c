@@ -40,6 +40,9 @@ int main(int argc, const char *argv[])
 	//double* B = {3,2,3,4,5,6,7,8,9};
 	//double* C = {1,10,3,4,5,6,7,8,9};
 
+	double* A;
+	double* B;
+	double* C;
 	int N = SIZE;
 	A=(double*) malloc( sizeof(double)*N*N );
 	B=(double*) malloc( sizeof(double)*N*N );
