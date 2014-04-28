@@ -23,7 +23,7 @@ void unoptimized_triad_(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZ
 	}
 }
 */
-void Dgemm_multiply(double* a,double*  b,double*  c, int N)
+void Dgemm_multiply(double a[SIZE][SIZE],double b[SIZE][SIZE],double c[SIZE][SIZE], int N)
 {	
 
 	double alpha = 1.0, beta = 1.0;
