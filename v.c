@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include "help_func.h"
 
-#include <mkl.h>
+#include <lapacke.h>
 
 double A[SIZE][SIZE];
 double B[SIZE][SIZE];
