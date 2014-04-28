@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <omp.h>
-#define SIZE 3	/* size of the array */ 
+#define SIZE 5	/* size of the array */ 
 #include <time.h>
 #include <stdlib.h>
 #include "help_func.h"
