@@ -3,7 +3,7 @@
 #define SIZE 1500	/* size of the array */ 
 #include <time.h>
 #include <stdlib.h>
-#include "help_func.h"
+#include "../help_func.h"
 //#include <tmmintrin.h>
 
 double A[SIZE][SIZE];
