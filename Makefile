@@ -11,7 +11,7 @@
 
 all:
 	@echo "Compiling vi.c with icc"
-	icc -std=c99 vi/vi.c    -openmp -mkl -o vi/vi.out
+	icc -std=c99 vi/vi.c -mkl -o vi/vi.out
 	icc -std=c99 vi/vi_1.c  -openmp -mkl -o vi/vi_1.out
 	icc -std=c99 vi/vi_2.c  -openmp -mkl -o vi/vi_2.out
 	icc -std=c99 vi/vi_3.c  -openmp -mkl -o vi/vi_3.out
