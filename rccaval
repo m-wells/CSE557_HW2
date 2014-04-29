@@ -1,0 +1,14 @@
+#!/bin/sh
+
+#Script for checking status of PSU RCC clusters all at once
+
+#Set this to your user id. If you don’t have your ssh-key set up you are going to have to
+#enter your password a lot, so do that first.
+user=maw461
+
+echo "" 
+#You can add or remove cluster names here, include everything except .psu.edu
+for cluster in lionxv.rcc lionxi.rcc lionxj.rcc lionxg.rcc lionxf.rcc lionxh.rcc ; do
+ssh -o LogLevel=quiet $user@$cluster.psu.edu 'qstat -B; echo ""; showq | grep -A 2 "processors in use by local"'
+echo ""
+done
