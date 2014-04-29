@@ -3,7 +3,7 @@
 #define SIZE 4000	/* size of the array */ 
 #include <time.h>
 #include <stdlib.h>
-#include "help_func.h"
+#include "../help_func.h"
 
 #include "mkl.h"
 
