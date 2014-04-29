@@ -7,7 +7,7 @@
 
 #include "mkl.h"
 
-#define NUMTHREADS 1
+#define NUMTHREADS 4
 
 //A part of this program is based on Intel's cblas_dgemm example: seen here 
 //program is based on 
