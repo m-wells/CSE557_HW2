@@ -11,17 +11,17 @@
 
 all:
 	@echo "Compiling vi.c with icc"
-	icc -std=c99 vi.c -openmp -mkl -o vi.out
-	icc -std=c99 vi_1.c -openmp -mkl -o vi_1.out
-	icc -std=c99 vi_2.c -openmp -mkl -o vi_2.out
-	icc -std=c99 vi_3.c -openmp -mkl -o vi_3.out
-	icc -std=c99 vi_4.c -openmp -mkl -o vi_4.out
-	icc -std=c99 vi_5.c -openmp -mkl -o vi_5.out
-	icc -std=c99 vi_6.c -openmp -mkl -o vi_6.out
-	icc -std=c99 vi_7.c -openmp -mkl -o vi_7.out
-	icc -std=c99 vi_8.c -openmp -mkl -o vi_8.out
-	icc -std=c99 vi_9.c -openmp -mkl -o vi_9.out
-	icc -std=c99 vi_10.c -openmp -mkl -o vi_10.out
+	icc -std=c99 vi/vi.c    -openmp -mkl -o vi/vi.out
+	icc -std=c99 vi/vi_1.c  -openmp -mkl -o vi/vi_1.out
+	icc -std=c99 vi/vi_2.c  -openmp -mkl -o vi/vi_2.out
+	icc -std=c99 vi/vi_3.c  -openmp -mkl -o vi/vi_3.out
+	icc -std=c99 vi/vi_4.c  -openmp -mkl -o vi/vi_4.out
+	icc -std=c99 vi/vi_5.c  -openmp -mkl -o vi/vi_5.out
+	icc -std=c99 vi/vi_6.c  -openmp -mkl -o vi/vi_6.out
+	icc -std=c99 vi/vi_7.c  -openmp -mkl -o vi/vi_7.out
+	icc -std=c99 vi/vi_8.c  -openmp -mkl -o vi/vi_8.out
+	icc -std=c99 vi/vi_9.c  -openmp -mkl -o vi/vi_9.out
+	icc -std=c99 vi/vi_10.c -openmp -mkl -o vi/vi_10.out
 
 # vim:ft=make
 #
