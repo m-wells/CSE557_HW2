@@ -23,5 +23,9 @@ all:
 	icc -std=c99 vi/vi_9.c  -openmp -mkl -o vi/vi_9.out
 	icc -std=c99 vi/vi_10.c -openmp -mkl -o vi/vi_10.out
 
+clean:
+	rm i/*.out
+	rm ii/*.out
+	rm vi/*.out
 # vim:ft=make
 #
