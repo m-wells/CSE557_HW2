@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <omp.h>
-#define SIZE 4000	/* size of the array */ 
+#define SIZE 3	/* size of the array */ 
 #include <time.h>
 #include <stdlib.h>
 #include "help_func.h"
@@ -67,6 +67,7 @@ int main(int argc, const char *argv[])
 	//double* B = {3,2,3,4,5,6,7,8,9};
 	//double* C = {1,10,3,4,5,6,7,8,9};
 
+	/*
 	double* A;
 	double* B;
 	double* C;
@@ -74,10 +75,11 @@ int main(int argc, const char *argv[])
 	A=(double*) malloc( sizeof(double)*N*N );
 	B=(double*) malloc( sizeof(double)*N*N );
 	C=(double*) malloc( sizeof(double)*N*N );
-
-	A = (double[SIZE*SIZE]){1,2,3,4,5,6,7,8,9};
-	B = (double[SIZE*SIZE]){3,2,3,4,5,6,7,8,9};
-	C = (double[SIZE*SIZE]){1,10,3,4,5,6,7,8,9};
+	*/
+	
+	double* A = (double[SIZE*SIZE]){1,2,3,4,5,6,7,8,9};
+	double* B = (double[SIZE*SIZE]){3,2,3,4,5,6,7,8,9};
+	double* C = (double[SIZE*SIZE]){1,10,3,4,5,6,7,8,9};
 	
 	/*
 	init_arr(N, A);
