@@ -106,7 +106,8 @@ int main(int argc, const char *argv[])
 	//unoptimized_triad(A,B,C);
 	double end_time = omp_get_wtime() - start_time;
 
-	//print_arr(N,"C",C);
+	print("C = C + A*B");
+	print_arr(N,"C",C);
 
 	printf("unoptimized base line time: %f\n",end_time);
 
