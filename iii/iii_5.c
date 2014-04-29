@@ -6,7 +6,7 @@
 #include "../help_func.h"
 //#include <tmmintrin.h>
 
-#define NUMTHREADS 8
+#define NUMTHREADS 5
 
 double A[SIZE][SIZE];
 double B[SIZE][SIZE];

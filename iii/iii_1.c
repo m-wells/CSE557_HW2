@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <omp.h>
-#define SIZE 1500	/* size of the array */ 
+#define SIZE 8000	/* size of the array */ 
 #include <time.h>
 #include <stdlib.h>
 #include "../help_func.h"
 //#include <tmmintrin.h>
+
+#define NUMTHREADS 1
 
 double A[SIZE][SIZE];
 double B[SIZE][SIZE];
@@ -28,6 +30,7 @@ void unoptimized_omp_triad(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[
 
 int main(int argc, const char *argv[])
 {
+	omp_set_num_threads(NUMTHREADS);
 	/*
 	double A[SIZE][SIZE] = {1,2,3,4,5,6,7,8,9};
 	double B[SIZE][SIZE] = {3,2,3,4,5,6,7,8,9};
