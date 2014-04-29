@@ -50,11 +50,11 @@ vii:
 	  -liomp5 -lpthread
 
 clean:
-	rm i/*.out
-	rm ii/*.out
-	rm iii/*.out
-	rm vi/*.out
-	rm vii/*.out
+	rm -rf i/*.out
+	rm -rf ii/*.out
+	rm -rf iii/*.out
+	rm -rf vi/*.out
+	rm -rf vii/*.out
 	
 # vim:ft=make
 #
