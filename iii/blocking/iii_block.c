@@ -15,9 +15,9 @@ void omp_triad_block(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZE][
   int BLOCKSIZE = SIZE/250;
 
 	#pragma omp parallel for
-  for(int bi=0; bi<4; bi+=BLOCKSIZE) {                      
-    for(int bj=0; bj<4; bj+=BLOCKSIZE) {                  
-      for(int bk=0; bk<4; bk+=BLOCKSIZE) { 
+  for(int bi=0; bi<250; bi+=BLOCKSIZE) {                      
+    for(int bj=0; bj<250; bj+=BLOCKSIZE) {                  
+      for(int bk=0; bk<250; bk+=BLOCKSIZE) { 
 	for (int i = 0; i < BLOCKSIZE; i++) {
 		for (int j = 0; j < BLOCKSIZE; j++) {
 			for (int k = 0; k < BLOCKSIZE; k++) {
