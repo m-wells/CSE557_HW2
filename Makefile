@@ -12,6 +12,8 @@
 all:
 	@echo "Compiling v.c with icc"
 	icc -std=c99 vi.c -openmp -mkl -o vi.out
+	icc -std=c99 vi_1.c -openmp -mkl -o vi_1.out
+	icc -std=c99 vi_2.c -openmp -mkl -o vi_2.out
 
 # vim:ft=make
 #
