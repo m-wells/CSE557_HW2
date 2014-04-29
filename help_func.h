@@ -35,3 +35,27 @@ void fill_random2d_double_seed(double a[SIZE][SIZE],int myseed) {
       }
    }
 }
+
+//print array to std out
+void print_arr(int N, char * name, double* array)
+{	
+	int i,j;	
+	printf("\n%s\n",name);
+	for (i=0;i<N;i++){
+		for (j=0;j<N;j++) {
+			printf("%g\t",array[N*i+j]);
+		}
+		printf("\n");
+	}
+}
+
+//initialize array with random data
+void init_arr(int N, double* a)
+{	
+	int i,j;
+	for (i=0; i< N;i++) {
+		for (j=0; j<N;j++) {
+			a[i*N+j] = ((double)rand()/(double)RAND_MAX);
+		}
+	}
+}
