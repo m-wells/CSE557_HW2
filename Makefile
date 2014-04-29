@@ -14,6 +14,8 @@ all:
 	@echo "Compiling iii.c with icc"
 	icc -std=c99 iii/iii.c  -openmp -o    iii/iii.out
 	icc -std=c99 iii/iii_1.c  -openmp -o  iii/iii_1.out
+	icc -std=c99 iii/iii_4.c  -openmp -o  iii/iii_4.out
+	icc -std=c99 iii/iii_8.c  -openmp -o  iii/iii_8.out
 	#icc -std=c99 iii/iii_2.c  -openmp -o iii/iii_2.out
 	#icc -std=c99 iii/iii_3.c  -openmp -o iii/iii_3.out
 	#icc -std=c99 iii/iii_4.c  -openmp -o iii/iii_4.out

@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <omp.h>
-#define SIZE 8000	/* size of the array */ 
+#define SIZE 500	/* size of the array */ 
 #include <time.h>
 #include <stdlib.h>
 #include "../help_func.h"
 //#include <tmmintrin.h>
+
+#define NUMTHREADS 8
 
 double A[SIZE][SIZE];
 double B[SIZE][SIZE];
