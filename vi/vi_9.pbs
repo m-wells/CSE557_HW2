@@ -7,4 +7,4 @@
 
 cd $PBS_O_WORKDIR          # change into same directory as job was submitted from
 
-./vi_1.out
+./vi_9.out
