@@ -71,7 +71,9 @@ int main(int argc, const char *argv[])
 	double* A;
 	double* B;
 	double* C;
+	*/
 	int N = SIZE;
+	/*
 	A=(double*) malloc( sizeof(double)*N*N );
 	B=(double*) malloc( sizeof(double)*N*N );
 	C=(double*) malloc( sizeof(double)*N*N );
