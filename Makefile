@@ -13,7 +13,7 @@
 all: iii vi vii 
 
 
-iii:
+iii: iii.out
 	@echo "Compiling iii.c with icc"
 	icc -std=c99 iii/iii.c  -openmp -o iii.out
 	#icc -std=c99 iii/iii_1.c  -openmp -o iii_1.out
@@ -27,7 +27,7 @@ iii:
 	#icc -std=c99 iii/iii_9.c  -openmp -o iii_9.out
 	#icc -std=c99 iii/iii_10.c -openmp  -o iii_10.out
 
-vi:
+vi: vi_1.out 
 	@echo "Compiling vi.c with icc"
 	icc -std=c99 vi/vi.c -mkl -o vi/vi.out
 	icc -std=c99 vi/vi_1.c  -openmp -mkl -o vi/vi_1.out
