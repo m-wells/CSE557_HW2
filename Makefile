@@ -10,19 +10,19 @@
 #icc -std=c99 v.c -openmp -lmkl_solver_lp64_sequential -Wl,--start-group -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group -o vvv.out
 
 
-all: 
+iii: iii/iii.out 
 	@echo "Compiling iii.c with icc"
-	icc -std=c99 iii/iii.c  -openmp -o iii.out
-	icc -std=c99 iii/iii_1.c  -openmp -o iii_1.out
-	#icc -std=c99 iii/iii_2.c  -openmp -o iii_2.out
-	#icc -std=c99 iii/iii_3.c  -openmp -o iii_3.out
-	#icc -std=c99 iii/iii_4.c  -openmp -o iii_4.out
-	#icc -std=c99 iii/iii_5.c  -openmp -o iii_5.out
-	#icc -std=c99 iii/iii_6.c  -openmp -o iii_6.out
-	#icc -std=c99 iii/iii_7.c  -openmp -o iii_7.out
-	#icc -std=c99 iii/iii_8.c  -openmp -o iii_8.out
-	#icc -std=c99 iii/iii_9.c  -openmp -o iii_9.out
-	#icc -std=c99 iii/iii_10.c -openmp  -o iii_10.out
+	icc -std=c99 iii/iii.c  -openmp -o    iii/iii.out
+	icc -std=c99 iii/iii_1.c  -openmp -o  iii/iii_1.out
+	#icc -std=c99 iii/iii_2.c  -openmp -o iii/iii_2.out
+	#icc -std=c99 iii/iii_3.c  -openmp -o iii/iii_3.out
+	#icc -std=c99 iii/iii_4.c  -openmp -o iii/iii_4.out
+	#icc -std=c99 iii/iii_5.c  -openmp -o iii/iii_5.out
+	#icc -std=c99 iii/iii_6.c  -openmp -o iii/iii_6.out
+	#icc -std=c99 iii/iii_7.c  -openmp -o iii/iii_7.out
+	#icc -std=c99 iii/iii_8.c  -openmp -o iii/iii_8.out
+	#icc -std=c99 iii/iii_9.c  -openmp -o iii/iii_9.out
+	#icc -std=c99 iii/iii_10.c -openmp  -o iii/iii_10.out
 
 #vi: vi_1.out 
 #	@echo "Compiling vi.c with icc"
