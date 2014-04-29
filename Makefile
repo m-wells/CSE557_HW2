@@ -10,7 +10,7 @@
 #icc -std=c99 v.c -openmp -lmkl_solver_lp64_sequential -Wl,--start-group -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group -o vvv.out
 
 
-iii: iii/iii.out 
+iii:  
 	@echo "Compiling iii.c with icc"
 	icc -std=c99 iii/iii.c  -openmp -o    iii/iii.out
 	icc -std=c99 iii/iii_1.c  -openmp -o  iii/iii_1.out
