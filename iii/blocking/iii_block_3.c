@@ -4,7 +4,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include "../../help_func.h"
-#define NUMTHREADS 1
+#define NUMTHREADS 3
 
 double A[SIZE][SIZE];
 double B[SIZE][SIZE];
