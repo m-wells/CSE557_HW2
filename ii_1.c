@@ -3,7 +3,7 @@
 #define SIZE 8000	/* size of the array */ 
 #include <time.h>
 #include <stdlib.h>
-#include "help_func.h"
+#include "../help_func.h"
 #define NUMTHREADS 1
 
 double A[SIZE][SIZE];

@@ -10,7 +10,7 @@
 #icc -std=c99 v.c -openmp -lmkl_solver_lp64_sequential -Wl,--start-group -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group -o vvv.out
 
 all:
-	@echo "Compiling v.c with icc"
+	@echo "Compiling vi.c with icc"
 	icc -std=c99 vi.c -openmp -mkl -o vi.out
 	icc -std=c99 vi_1.c -openmp -mkl -o vi_1.out
 	icc -std=c99 vi_2.c -openmp -mkl -o vi_2.out
@@ -25,4 +25,3 @@ all:
 
 # vim:ft=make
 #
-
