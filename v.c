@@ -75,13 +75,15 @@ int main(int argc, const char *argv[])
 	B=(double*) malloc( sizeof(double)*N*N );
 	C=(double*) malloc( sizeof(double)*N*N );
 
-	//A = (double[SIZE*SIZE]){1,2,3,4,5,6,7,8,9};
-	//B = (double[SIZE*SIZE]){3,2,3,4,5,6,7,8,9};
-	//C = (double[SIZE*SIZE]){1,10,3,4,5,6,7,8,9};
+	A = (double[SIZE*SIZE]){1,2,3,4,5,6,7,8,9};
+	B = (double[SIZE*SIZE]){3,2,3,4,5,6,7,8,9};
+	C = (double[SIZE*SIZE]){1,10,3,4,5,6,7,8,9};
+	
+	/*
 	init_arr(N, A);
 	init_arr(N, B);
 	init_arr(N, C);
-
+	*/
 	/*
 	fill_random2d_double_seed(A,42);
 	fill_random2d_double_seed(B,42);
@@ -91,9 +93,9 @@ int main(int argc, const char *argv[])
 	int incx = 1;
 	int incy = N;
 
-	//print_arr(N,"A",A);
-	//print_arr(N,"B",B);
-	//print_arr(N,"C",C);
+	print_arr(N,"A",A);
+	print_arr(N,"B",B);
+	print_arr(N,"C",C);
 	double start_time = omp_get_wtime();
 
 	cblas_dgemm(CblasRowMajor,CblasNoTrans,CblasNoTrans,N,N,N,alpha,A,N,B,N,beta,C,N);
