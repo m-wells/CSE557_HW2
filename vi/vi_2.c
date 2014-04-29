@@ -10,7 +10,7 @@
 #define NUMTHREADS 2
 
 //A part of this program is based on Intel's cblas_dgemm example: seen here 
-//program is based on 
+//https://software.intel.com/sites/default/files/article/171460/mkl-lab-solution.c
 
 
 int main(int argc, const char *argv[])
