@@ -15,7 +15,7 @@
 
 int main(int argc, const char *argv[])
 {
-	omp_set_num_threads(NUMTHREADS)
+	omp_set_num_threads(NUMTHREADS);
 	//double* A = {1,2,3,4,5,6,7,8,9};
 	//double* B = {3,2,3,4,5,6,7,8,9};
 	//double* C = {1,10,3,4,5,6,7,8,9};
