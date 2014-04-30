@@ -20,7 +20,7 @@ void omp_triad_vec(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZE][SI
   double my_a = 0;
   double my_b = 0;
   double my_mult = 0;
-	#pragma omp parallel for
+	//#pragma omp parallel for
 
 	for (int i = 0; i < SIZE; i++) {
 		for (int j = 0; j < SIZE; j++) {
