@@ -6,17 +6,19 @@
 #include <time.h>
 #include <stdlib.h>
 #include "../../help_func.h"
+#include <malloc.h>
 
 
 #define NUMTHREADS 1
 
-double A[SIZE][SIZE];
-double B[SIZE][SIZE];
-double C[SIZE][SIZE];
+//double A[SIZE][SIZE];
+//double B[SIZE][SIZE];
+//double C[SIZE][SIZE];
 
 void omp_triad_vec(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZE][SIZE])
 {
   register __m128d a,b,c,v;
+  //double my_a = 0;
   double my_a = 0;
   double my_b = 0;
   double my_mult = 0;
@@ -25,18 +27,18 @@ void omp_triad_vec(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZE][SI
 	for (int i = 0; i < SIZE; i++) {
 		for (int j = 0; j < SIZE; j++) {
 		   for (int k = 0; k < SIZE; k++) {
-			   a = _mm_load_pd(&A[i][k]);
+			   a = _mm_load_pd1(&A[i][k]);
 			   //a = _mm_load_pd(&A[i][k]);
-			   b = _mm_load_pd(&B[k][j]);
+			   b = _mm_load_pd1(&B[k][j]);
 			   //b = _mm_load_pd(&B[k][j]);
-			   c = _mm_load_pd(&C[i][j]);
+			   c = _mm_load_pd1(&C[i][j]);
 			   //c = _mm_load_pd(&C[i][j]);
 			   printf("my_b %f\n",B[k][j]);
 			   printf("my_a %f\n",A[i][k]);
 			   printf("my_c %f\n",C[i][j]);
 
 			   //v = _mm_set_pd(0,0);
-			   v  = _mm_mul_pd(a,b);
+			   v  = _mm_mul_pd1(a,b);
 			   _mm_store_pd(&my_mult,v);
 			   printf("my_mult %f\n",my_mult);
 			   
@@ -53,6 +55,9 @@ void omp_triad_vec(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZE][SI
 int main(int argc, const char *argv[])
 {
 	omp_set_num_threads(NUMTHREADS);
+	
+	size_t bytes = SIZE*SIZE*8;
+	double A[SIZE][SIZE] = _aligned_malloc(bytes,8);
 	double A[SIZE][SIZE] = {1,2,3,4,5,6,7,8,9};
 	double B[SIZE][SIZE] = {3,2,3,4,5,6,7,8,9};
 	double C[SIZE][SIZE] = {1,10,3,4,5,6,7,8,9};
