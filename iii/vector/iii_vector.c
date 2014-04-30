@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <omp.h>
+#include <gmmintrin.h>
 #define SIZE 8000	/* size of the array */ 
 #include <time.h>
 #include <stdlib.h>
@@ -12,16 +13,20 @@ double A[SIZE][SIZE];
 double B[SIZE][SIZE];
 double C[SIZE][SIZE];
 
-void unoptimized_omp_triad(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZE][SIZE])
+
+
+
+void omp_triad_vec(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZE][SIZE])
 {
 	#pragma omp parallel for
 	for (int i = 0; i < SIZE; i++) {
 		for (int j = 0; j < SIZE; j++) {
-			for (int k = 0; k < SIZE; k+=4) {
-				C[i][j] += A[i][k] * B[k][j];
-				C[i][j] += A[i][k+1] * B[k+1][j];
-				C[i][j] += A[i][k+2] * B[k+2][j];
-				C[i][j] += A[i][k+3] * B[k+3][j];
+			for (int k = 0; k < SIZE/4; k+=4) {
+			  __m256d a = _mm_load_pd(&A[i]);
+			  __m256d b = _mm_load_pd(&B[i]);
+			  __m256d c = _mm_load_pd(&C[i][j]);
+			  v = _mm_add_pd(_mm_mul_pd(a,b),c);
+			  _mm_store_pd(&C[i][j],v);
 				//printf("%d\n",omp_get_thread_num());
 			}
 		}
@@ -42,7 +47,7 @@ int main(int argc, const char *argv[])
 	fill_random2d_double_seed(C,42);
 
 	double start_time = omp_get_wtime();
-	unoptimized_omp_triad(A,B,C);
+	omp_triad_vec(A,B,C);
 	double end_time = omp_get_wtime() - start_time;
 
 	//print_array2d_double('C',C);
