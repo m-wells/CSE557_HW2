@@ -1,0 +1,9 @@
+error: could not lock config file /gpfs/home/maw461/.gitconfig: File exists
+Hello world from rank   0 of   1
+Initialization ...
+Done!
+
+Multiplication ...
+Done!
+
+Time, 4162.430441 
