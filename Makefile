@@ -1,14 +1,14 @@
-#
 # Makefile
-# gks, 2014-04-27 21:33
+# Initially created by Gudmundur, 2014-04-27 21:33
+# 
+# A few notes for running on the RCC:
+# iv:
+#  - You will need to do 
+#  > module load mpich2
 #
+# vi:
+#  - You will need to set the Intel MKL environment variables:
 #
-#	icc -std=c99 v.c -openmp -L/usr/global/intel/mkl/10.3.12.361/lib/intel64 -Wl,-R/usr/global/intel/mkl/10.3.12.361/lib/intel64 -lmkl_solver_lp64_sequential -Wl,--start-group -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group -o vvv.out
-#
-#export MKLPATH:=$MKLROOT/lib
-#export MKLINCLUDE=$MKLROOT/include
-#icc -std=c99 v.c -openmp -lmkl_solver_lp64_sequential -Wl,--start-group -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group -o vvv.out
-
 
 all:  
 	@echo "Compiling iii.c with icc"
@@ -23,6 +23,8 @@ all:
 	icc -std=c99 iii/iii_8.c  -openmp -o iii/iii_8.out
 	icc -std=c99 iii/iii_9.c  -openmp -o iii/iii_9.out
 	icc -std=c99 iii/iii_10.c -openmp -o iii/iii_10.out
+	@echo "Compiling iv.c with mpicc"
+	
 
 #vi: vi_1.out 
 #	@echo "Compiling vi.c with icc"

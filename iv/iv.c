@@ -1,5 +1,5 @@
 /**
- * File Name: sam_mm.c
+ * File Name: sam_mm.c //NOW: iv.c
  * Sample matrix multiplication code.
  * Algorithm: A and C are partitioned in 1D row blocks, B is partitioned in 
  * 1D column blocks. 
@@ -10,7 +10,7 @@
  * column of its own portion of C.
  *
  * To compile:
- * cc sam_mm.c -o sam_mm -lmpi
+ * cc iv.c -o sam_mm -lmpi
  *
  * Comments: I've put lots of effort to make the code as easy to read as 
  * possible. So many opportunities for optimiaztions are possible, e.g.
@@ -18,13 +18,31 @@
  * memcpy(...) can be removed.
  *
  * -Hong Tang, May. 1999
+ *
+ * -------------------------------------------------------------------------
+ * -------------------------------------------------------------------------
+ * -------------------------------------------------------------------------
+ * //EDITS FOR CSE557 April 2014:
+ * - Put helper functions into "iv_help.h" to keep it more clean
+ * - You have to include the two #include statements as well (not included
+ *   in Tang's code 1999.
+ *
+ * - We compiled it in the following way on the RCC:
+ *   > module load mpich2
+ *   > mpicc vi.c -o iv.out
+ *
+ * - To run with a matrix of size 8000, and 1D block-size of 25 on P threads, 
+ *   > mpirun -n P ./iv.out 8000 25
+ * -------------------------------------------------------------------------
+ * -------------------------------------------------------------------------
+ * -------------------------------------------------------------------------
  */
 
 #include <mpi.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
+#include <string.h> // Have to include this additionally from Tang's code 1999
+#include <unistd.h> // Have to include this additionally from Tang's code 1999
 
 static int n;	 	 /* size of the matrix */
 static int bsize;	 /* size of the sub-matrix */
@@ -79,14 +97,12 @@ int main(int argc, char *argv[])
 		MPI_Finalize();
 		return -1;
 	}
-
 	/* zero the memory used by C */
 	memset((char *)C, 0, sizeof(double)*(n*n/nproc));
 
 	if (myid==0) {
 		printf("Initialization ...\n");
 	}
-
 	//-------------------------------------------------------------------
 	/* initialize A and B */
 	for (i=0; i<n; i++)
@@ -124,29 +140,27 @@ int main(int argc, char *argv[])
 	}
 
 	//-------------------------------------------------------------------
-
-	//if (myid==0) {
-	//	printf("Done!\n\n");
-	//}
-
-	//if (n<=10) {
-	//	if (myid==0)
-	//		printf("Printing Matrix C ...\n");
-	//	/* implementing a token pass protocol to print the C */
-	//	if (myid!=0) {
-	//		MPI_Recv(&token, 1, MPI_INT, myid-1, 2, MPI_COMM_WORLD, &status);
-	//	}
-	//	printC();
-	//	fflush(stdout);
-	//
-	//	if (myid<nproc-1) {
-	//		MPI_Send(&token, 1, MPI_INT, myid+1, 2, MPI_COMM_WORLD);
-	//	}
-	//
-	//	if (myid==nproc-1) {
-	//		printf("Done!\n");
-	//	}
-	//}
+	if (myid==0) {
+		printf("Done!\n\n");
+	}
+	if (n<=10) {
+		if (myid==0)
+			printf("Printing Matrix C ...\n");
+		/* implementing a token pass protocol to print the C */
+		if (myid!=0) {
+			MPI_Recv(&token, 1, MPI_INT, myid-1, 2, MPI_COMM_WORLD, &status);
+		}
+		printC();
+		fflush(stdout);
+	
+		if (myid<nproc-1) {
+			MPI_Send(&token, 1, MPI_INT, myid+1, 2, MPI_COMM_WORLD);
+		}
+	
+		if (myid==nproc-1) {
+			printf("Done!\n");
+		}
+	}
 	if (myid==0) {
 		printf("Done!\n\n");
 		end_time = MPI_Wtime() - start_time;
