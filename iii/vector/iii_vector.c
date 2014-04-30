@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <omp.h>
 #include <smmintrin.h>
-#define SIZE 4	/* size of the array */ 
+#define SIZE 3	/* size of the array */ 
 #include <time.h>
 #include <stdlib.h>
 #include "../../help_func.h"
@@ -13,9 +13,6 @@
 double A[SIZE][SIZE];
 double B[SIZE][SIZE];
 double C[SIZE][SIZE];
-
-
-
 
 void omp_triad_vec(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZE][SIZE])
 {
@@ -49,16 +46,14 @@ void omp_triad_vec(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZE][SI
 int main(int argc, const char *argv[])
 {
 	omp_set_num_threads(NUMTHREADS);
-	/*
 	double A[SIZE][SIZE] = {1,2,3,4,5,6,7,8,9};
 	double B[SIZE][SIZE] = {3,2,3,4,5,6,7,8,9};
 	double C[SIZE][SIZE] = {1,10,3,4,5,6,7,8,9};
-	*/
-
+	/*
 	fill_random2d_double_seed(A,42);
 	fill_random2d_double_seed(B,42);
 	fill_random2d_double_seed(C,42);
-
+	*/
 	double start_time = omp_get_wtime();
 	omp_triad_vec(A,B,C);
 	double end_time = omp_get_wtime() - start_time;
