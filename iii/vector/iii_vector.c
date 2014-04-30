@@ -27,11 +27,11 @@ void omp_triad_vec(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZE][SI
 	for (int i = 0; i < SIZE; i++) {
 		for (int j = 0; j < SIZE; j++) {
 		   for (int k = 0; k < SIZE; k++) {
-			   a = _mm_load_pd1(&A[i][k]);
+			   a = _mm_load_pd(&A[i][k]);
 			   //a = _mm_load_pd(&A[i][k]);
-			   b = _mm_load_pd1(&B[k][j]);
+			   b = _mm_load_pd(&B[k][j]);
 			   //b = _mm_load_pd(&B[k][j]);
-			   c = _mm_load_pd1(&C[i][j]);
+			   c = _mm_load_pd(&C[i][j]);
 			   //c = _mm_load_pd(&C[i][j]);
 			   printf("my_b %f\n",B[k][j]);
 			   printf("my_a %f\n",A[i][k]);
