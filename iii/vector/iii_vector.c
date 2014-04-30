@@ -36,7 +36,7 @@ void omp_triad_vec(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZE][SI
 			   v  =_mm_add_pd( _mm_mul_pd(a,b),c);
 			   _mm_store_pd(&my_mult,v);
 			   printf("my_mult %f\n",my_mult);
-			   printf("i,j,k %d %d %d",i,j,k);
+			   //printf("i,j,k %d %d %d\n",i,j,k);
 			   //_mm_store_pd(&C[i][j],c);
 			}
 		}
