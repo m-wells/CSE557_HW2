@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <omp.h>
+#include <math.h>
 #define SIZE 8000	/* size of the array */ 
 #include <time.h>
 #include <stdlib.h>
@@ -12,17 +13,18 @@ double C[SIZE][SIZE];
 
 void omp_triad_block(double A[SIZE][SIZE], double B[SIZE][SIZE], double C[SIZE][SIZE])
 {
-  int BLOCKSIZE = SIZE/250;
+  int STEPSIZE = 250;
+    int BLOCKSIZE = SIZE/STEPSIZE;
 
 	#pragma omp parallel for
-  for(int bi=0; bi<250; bi+=BLOCKSIZE) {                      
-    for(int bj=0; bj<250; bj+=BLOCKSIZE) {                  
-      for(int bk=0; bk<250; bk+=BLOCKSIZE) { 
-	for (int i = 0; i < BLOCKSIZE; i++) {
-		for (int j = 0; j < BLOCKSIZE; j++) {
-			for (int k = 0; k < BLOCKSIZE; k++) {
-				C[bi+i][bj+j] += A[bi+i][bk+k] * B[bk+k][bj+j];
-				//printf("%d\n",omp_get_thread_num());
+  for(int bi=0; bi<BLOCKSIZE; bi++) {                      
+    for(int bj=0; bj<BLOCKSIZE; bj++) {                  
+      for(int bk=0; bk<BLOCKSIZE; bk++) { 
+	for (int i = bi; i <fmin(bi+STEPSIZE-1,SIZE); i++) {
+	  for (int j = bj; j <fmin(bj+STEPSIZE-1,SIZE); j++) {
+	    for (int k = bk; k <fmin(bk+STEPSIZE-1,SIZE); k++) {
+				C[i][j] += A[i][k] * B[k][j];
+				//printf("%d\n",BLOCKSIZE);
 			}
 		}
 	}

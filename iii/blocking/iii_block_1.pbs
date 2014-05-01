@@ -8,5 +8,5 @@
 cd $PBS_O_WORKDIR          # change into same directory as job was submitted from
 
 
-icc -std=c99 -o iii_block_1 -openmp iii_block.c
+icc -std=c99 -o iii_block_1 -openmp iii_block_1.c
 ./iii_block_1
